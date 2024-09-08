@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'ubuntuMonoBold';
+    src: local('UbuntuMono-Bold'),
+    url('./assets/fonts/Ubuntu_Mono/UbuntuMono-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ubuntuMonoRegular';
+    src: local('UbuntuMono-Regular'),
+    url('./assets/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'openSansRegular';
+    src: local('OpenSans-Regular'),
+    url('./assets/fonts/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'openSansBold';
+    src: local('OpenSans-Bold'),
+    url('./assets/fonts/Open_Sans/static/OpenSans-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'openSansExtraBold';
+    src: local('OpenSans-ExtraBold'),
+    url('./assets/fonts/Open_Sans/static/OpenSans-ExtraBold.ttf') format('truetype');
+}

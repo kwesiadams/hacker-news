@@ -1,50 +1,35 @@
+# Description
+
+It’s finally happening! Hacker News is getting a redesign, and you’re in charge of building the front- end. Luckily, they’ve attached a mockup of the new design. They want a fast and flexible web application, so they want you to use React. The mockup they’ve provided to you is full of features, but they only require you to implement the core features unless you want extra brownie points.
+
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Styling
 
-Currently, two official plugins are available:
+The app uses tailwind css for styling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Structure
 
-## Expanding the ESLint configuration
+The src folder is made up of 4 subfolders besides the default asset folder.
+1. The layout folder contains all components concerned with the main layout of the application
+2. The lib folder contains utilities that are used across features in the application
+3. The news folder is a feature folder with feature specific components (News List and News List Item)
+4. The components folder contains basic reusable components
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Data Fetch and Caching
 
-- Configure the top-level `parserOptions` property like this:
+This project uses SWR for data fetching and caching. This decision was the project is relatively small and SWR simplicity and ease of use fits perfectly for the the project size
+Live data for the project is fetched from https://github.com/HackerNews/API
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# State Managemet 
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Since SWR maintains a global cache by default for all fetched items. The approach to state management was intended to keep things simple. 
+This project uses a combination of local state with useState and useContext for the few state elements that was needed 2 plus levels deep.
+A combination of sessionStorage and localStorage was used to persist data through reloads/refreshes and to persist saved and seen data respectively beyond a session.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+# Testing
+Unit testing was omitted from this project in favor of usibility testing. Will add tests over the lifetime of the project
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+
+
